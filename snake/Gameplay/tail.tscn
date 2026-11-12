@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://eb5qptechhmd"]
+
+[ext_resource type="Script" uid="uid://b6xydlylkejdi" path="res://Gameplay/tail.gd" id="1_g10ed"]
+[ext_resource type="Texture2D" uid="uid://b1i6wbpon5khq" path="res://Gameplay/sprites/apple.png" id="2_cc5vg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o4qd"]
+radius = 13.0
+
+[node name="Tail" type="Area2D" unique_id=564376227]
+script = ExtResource("1_g10ed")
+metadata/_custom_type_script = "uid://keswde3i3ls3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=535855209]
+texture = ExtResource("2_cc5vg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1753242275]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_6o4qd")

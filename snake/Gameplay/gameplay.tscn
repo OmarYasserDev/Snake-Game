@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blfk3i17qjt7v" path="res://Gameplay/sprites/grid.png" id="2_th867"]
 [ext_resource type="PackedScene" uid="uid://0pnv7jclm5gq" path="res://Gameplay/head.tscn" id="2_vy0x4"]
 [ext_resource type="Script" uid="uid://d2m1m5kmwg5ka" path="res://Gameplay/bounds.gd" id="3_ss10b"]
+[ext_resource type="Script" uid="uid://8eyyf803iss5" path="res://Gameplay/spawner.gd" id="5_7c8ig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7c8ig"]
 texture = ExtResource("2_th867")
@@ -24,7 +25,8 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 
 [node name="Head" parent="." unique_id=2066996132 instance=ExtResource("2_vy0x4")]
 unique_name_in_owner = true
-position = Vector2(402, 226)
+position = Vector2(416.99997, 224.99998)
+rotation = 0.2617994
 script = null
 
 [node name="Bounds" type="Node" parent="." unique_id=622316207]
@@ -37,3 +39,10 @@ position = Vector2(0, 3)
 [node name="LowerRight" type="Marker2D" parent="Bounds" unique_id=46335978]
 position = Vector2(799.00006, 446)
 rotation = 2.6179938
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1865558945 node_paths=PackedStringArray("bounds")]
+unique_name_in_owner = true
+script = ExtResource("5_7c8ig")
+bounds = NodePath("../Bounds")
+
+[connection signal="area_entered" from="Head" to="." method="_on_head_area_entered"]
