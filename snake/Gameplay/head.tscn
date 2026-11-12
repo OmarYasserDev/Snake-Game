@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0pnv7jclm5gq"]
+
+[ext_resource type="Script" uid="uid://csovcupxx6rrw" path="res://Gameplay/head.gd" id="1_ggocg"]
+[ext_resource type="Texture2D" uid="uid://clbaa5hnjjpyr" path="res://Gameplay/sprites/head-dw-logo.png" id="1_o0in7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o4qd"]
+
+[node name="Head" type="Area2D" unique_id=2066996132]
+position = Vector2(544, 320)
+script = ExtResource("1_ggocg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=618838359]
+texture = ExtResource("1_o0in7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709775069]
+shape = SubResource("CircleShape2D_6o4qd")
