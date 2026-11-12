@@ -1,7 +1,7 @@
 class_name Gameplay
 extends Node2D
 
-@onready var Head_snake = %Head as Head
+@onready var Head_snake: Head = %Head
 @onready var bounds: Bounds = $Bounds
 @onready var spawner: Spawner = %Spawner
 

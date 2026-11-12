@@ -27,7 +27,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 unique_name_in_owner = true
 position = Vector2(416.99997, 224.99998)
 rotation = 0.2617994
-script = null
 
 [node name="Bounds" type="Node" parent="." unique_id=622316207]
 unique_name_in_owner = true
