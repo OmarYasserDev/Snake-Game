@@ -1,1 +1,2 @@
-class_name Tail extends SnakePart
+class_name Tail
+extends SnakePart

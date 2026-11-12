@@ -9,11 +9,14 @@ var x_min: float
 var y_max: float
 var y_min: float
 
+
 func _ready() -> void:
 	x_max = lower_right.position.x
 	x_min = upper_left.position.x
+
 	y_max = lower_right.position.y
 	y_min = upper_left.position.y
+
 
 func wrap_vector(v: Vector2) -> Vector2:
 	var new_vector: Vector2 = v

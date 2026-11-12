@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bpangu4v8pwx7"]
+
+[ext_resource type="Script" uid="uid://cvqg1okbeayty" path="res://Gameplay/snake_part.gd" id="1_5e51h"]
+[ext_resource type="Texture2D" uid="uid://b1i6wbpon5khq" path="res://Gameplay/sprites/apple.png" id="2_ie20s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o4qd"]
+
+[node name="SnakePart" type="Area2D" unique_id=1798917920]
+script = ExtResource("1_5e51h")
+metadata/_custom_type_script = "uid://keswde3i3ls3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=412767877]
+position = Vector2(-2, 0)
+texture = ExtResource("2_ie20s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822231364]
+shape = SubResource("CircleShape2D_6o4qd")
