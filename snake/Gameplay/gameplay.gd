@@ -1,8 +1,11 @@
 class_name Gameplay
 extends Node2D
 
-const gameover_scence: PackedScene = preload("res://game_over.tscn")
-var gameover_menu:GameOver
+const gameover_scene: PackedScene = preload("res://game_over.tscn")
+const pausemenu_scene: PackedScene = preload("res://pause_screen.tscn")
+
+var gameover_menu: GameOver
+var pause_menu_instance: PauseMenu
 
 @onready var Head_snake: Head = %Head
 @onready var bounds: Bounds = $Bounds
@@ -12,7 +15,8 @@ var snake_parts: Array[SnakePart] = []
 var time_between_moves: float = 0.2
 var time_since_last_moves: float = 0.0
 var move_dir: Vector2 = Vector2.RIGHT
-var score:int = 0
+var score: int = 0
+
 const GRID_SIZE: int = 32
 
 
@@ -38,6 +42,9 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("ui_down") and move_dir != Vector2.UP:
 		move_dir = Vector2.DOWN
 
+	if Input.is_action_just_pressed("ui_cancel"):
+		pause_game()
+
 
 func _physics_process(delta: float) -> void:
 	time_since_last_moves += delta
@@ -60,11 +67,16 @@ func update_snake() -> void:
 
 func _on_food_eaten() -> void:
 	print("Food eaten!")
+
 	var last_part: SnakePart = snake_parts[snake_parts.size() - 1]
+
 	spawner.call_deferred("spawn_food")
 	spawner.call_deferred("spawn_tail", last_part.last_position)
+
 	time_between_moves = maxf(0.12, time_between_moves - 0.002)
 	score += 1
+
+
 func _on_tail_added(tail: Tail) -> void:
 	snake_parts.append(tail)
 	print("Snake length: ", snake_parts.size())
@@ -72,7 +84,20 @@ func _on_tail_added(tail: Tail) -> void:
 
 func _on_tail_collided() -> void:
 	print("GAME OVER! You collided with your tail.")
+
 	if not gameover_menu:
-		gameover_menu = gameover_scence.instantiate() as GameOver
+		gameover_menu = gameover_scene.instantiate() as GameOver
 		add_child(gameover_menu)
+
 	gameover_menu.set_score(score)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		pause_game()
+
+
+func pause_game() -> void:
+	if pause_menu_instance == null:
+		pause_menu_instance = pausemenu_scene.instantiate() as PauseMenu
+		add_child(pause_menu_instance)

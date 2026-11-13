@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ddy3pog68x72j"]
+
+[ext_resource type="Script" uid="uid://4toxti6gd80" path="res://start_game.gd" id="1_yyg2i"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1652857805]
+script = ExtResource("1_yyg2i")
+
+[node name="Panel" type="Panel" parent="." unique_id=1829005126]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=1410036112]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.5
+offset_top = -92.5
+offset_right = 227.5
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=776657362]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=152984717]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "SNAKE GAME"
+
+[node name="ScoreLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=733117378]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.20784314, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "High Score : 0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=1362554753]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer" unique_id=480847888]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58198655, 0.9999998, 0.36826143, 1)
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Quitbutton" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer" unique_id=923484833]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94678885, 0.24125814, 0.23121852, 1)
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

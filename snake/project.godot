@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Snake"
-run/main_scene="uid://cel0ilc23bbxe"
+run/main_scene="uid://ddy3pog68x72j"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

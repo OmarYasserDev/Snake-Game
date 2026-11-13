@@ -1,6 +1,6 @@
 class_name SnakePart
 extends Area2D
-var last_position: Vector2~
+var last_position: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	last_position = position
 func move_to(new_position: Vector2) -> void:
