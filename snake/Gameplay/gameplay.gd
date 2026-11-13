@@ -1,6 +1,9 @@
 class_name Gameplay
 extends Node2D
 
+const gameover_scence: PackedScene = preload("res://game_over.tscn")
+var gameover_menu:GameOver
+
 @onready var Head_snake: Head = %Head
 @onready var bounds: Bounds = $Bounds
 @onready var spawner: Spawner = %Spawner
@@ -9,7 +12,7 @@ var snake_parts: Array[SnakePart] = []
 var time_between_moves: float = 0.2
 var time_since_last_moves: float = 0.0
 var move_dir: Vector2 = Vector2.RIGHT
-
+var score:int = 0
 const GRID_SIZE: int = 32
 
 
@@ -61,7 +64,7 @@ func _on_food_eaten() -> void:
 	spawner.call_deferred("spawn_food")
 	spawner.call_deferred("spawn_tail", last_part.last_position)
 	time_between_moves = maxf(0.12, time_between_moves - 0.002)
-
+	score += 1
 func _on_tail_added(tail: Tail) -> void:
 	snake_parts.append(tail)
 	print("Snake length: ", snake_parts.size())
@@ -69,3 +72,7 @@ func _on_tail_added(tail: Tail) -> void:
 
 func _on_tail_collided() -> void:
 	print("GAME OVER! You collided with your tail.")
+	if not gameover_menu:
+		gameover_menu = gameover_scence.instantiate() as GameOver
+		add_child(gameover_menu)
+	gameover_menu.set_score(score)

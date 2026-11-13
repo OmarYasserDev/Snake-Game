@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cj147icgea0k8"]
+
+[ext_resource type="Script" uid="uid://531tru05sefg" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1033211653]
+process_mode = 3
+script = ExtResource("1_y26ei")
+
+[node name="Panel" type="Panel" parent="." unique_id=2026155804]
+modulate = Color(1, 1, 1, 0.7019608)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=853501351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=302100815]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=75510253]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+
+[node name="Score" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=769867711]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1626971477]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39607844, 1, 0.15686275, 1)
+text = "New High Score"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=34672828]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=479683021]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="Restartbutton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/GridContainer" unique_id=1017354006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/GridContainer" unique_id=1173557265]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/Restartbutton" to="." method="_on_restartbutton_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/GridContainer/QuitButton" to="." method="_on_quit_button_pressed"]
