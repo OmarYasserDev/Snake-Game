@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://b6xydlylkejdi" path="res://Gameplay/tail.gd" id="1_g10ed"]
 [ext_resource type="Texture2D" uid="uid://b1i6wbpon5khq" path="res://Gameplay/sprites/apple.png" id="2_cc5vg"]
+[ext_resource type="Texture2D" uid="uid://olqbh17x20rv" path="res://Gameplay/sprites/broccoli.png" id="3_yqji2"]
+[ext_resource type="Texture2D" uid="uid://dtmd48c8pnhuf" path="res://Gameplay/sprites/bread.png" id="4_b4ge5"]
+[ext_resource type="Texture2D" uid="uid://cpj6ce364ei71" path="res://Gameplay/sprites/milk.png" id="5_aweo2"]
+[ext_resource type="Texture2D" uid="uid://bh7ho7nyil03w" path="res://Gameplay/sprites/orange.png" id="6_35xns"]
+[ext_resource type="Texture2D" uid="uid://b58shs5mtetfi" path="res://Gameplay/sprites/coconut.png" id="7_v23er"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6o4qd"]
 radius = 13.0
 
 [node name="Tail" type="Area2D" unique_id=564376227]
 script = ExtResource("1_g10ed")
+textures = Array[Texture2D]([ExtResource("2_cc5vg"), ExtResource("3_yqji2"), ExtResource("4_b4ge5"), ExtResource("5_aweo2"), ExtResource("6_35xns"), ExtResource("7_v23er")])
 metadata/_custom_type_script = "uid://keswde3i3ls3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=535855209]
