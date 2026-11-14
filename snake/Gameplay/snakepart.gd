@@ -1,4 +1,4 @@
-class_name SnakePart extends Area2D
+extends Area2D
 
 var last_position:Vector2
 
