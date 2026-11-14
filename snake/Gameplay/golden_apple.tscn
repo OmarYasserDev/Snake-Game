@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d2bdnnrvq021y"]
+
+[ext_resource type="PackedScene" uid="uid://ylyucxsicmh" path="res://Gameplay/food.tscn" id="1_7mp8x"]
+[ext_resource type="Texture2D" uid="uid://c1v3hkk4si6ym" path="res://Gameplay/sprites/GOLDEN FOOD.png" id="2_d62cn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d62cn"]
+radius = 11.045361
+
+[node name="Food" unique_id=1456566245 instance=ExtResource("1_7mp8x")]
+score_value = 5
+
+[node name="Sprite2D" parent="." index="0" unique_id=173729565]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_d62cn")
+region_enabled = true
+region_rect = Rect2(0, 0, 543, 724)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=655890953]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_d62cn")

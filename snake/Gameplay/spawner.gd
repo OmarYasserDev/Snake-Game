@@ -7,6 +7,7 @@ signal tail_added(tail: Tail)
 @export var grid_size: int = 32
 
 const FOOD_SCENE: PackedScene = preload("res://Gameplay/food.tscn")
+const GOLDEN_FOOD_SCENE: PackedScene = preload("res://Gameplay/golden_apple.tscn")
 const TAIL_SCENE: PackedScene = preload("res://Gameplay/tail.tscn")
 
 
@@ -25,20 +26,15 @@ func spawn_food() -> void:
 
 	spawn_point.x = randi_range(min_x, max_x) * grid_size
 	spawn_point.y = randi_range(min_y, max_y) * grid_size
-
-	var food = FOOD_SCENE.instantiate()
-
+	var food_scene: PackedScene = FOOD_SCENE
+	if randf() < 0.15:
+		food_scene = GOLDEN_FOOD_SCENE
+	var food = food_scene.instantiate()
 	food.add_to_group("food")
 	food.position = spawn_point
-
 	get_parent().add_child(food)
-
-
 func spawn_tail(tail_position: Vector2) -> void:
 	var tail = TAIL_SCENE.instantiate() as Tail
-
 	tail.position = tail_position
-
 	get_parent().add_child(tail)
-
 	tail_added.emit(tail)

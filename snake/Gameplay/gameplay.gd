@@ -65,7 +65,7 @@ func update_snake() -> void:
 	Head_snake.move_to(new_pos)
 
 
-func _on_food_eaten() -> void:
+func _on_food_eaten(score_value: int) -> void:
 	print("Food eaten!")
 
 	var last_part: SnakePart = snake_parts[snake_parts.size() - 1]
@@ -74,7 +74,7 @@ func _on_food_eaten() -> void:
 	spawner.call_deferred("spawn_tail", last_part.last_position)
 
 	time_between_moves = maxf(0.12, time_between_moves - 0.002)
-	score += 1
+	score += score_value
 
 
 func _on_tail_added(tail: Tail) -> void:

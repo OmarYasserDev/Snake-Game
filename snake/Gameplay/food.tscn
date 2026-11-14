@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://ylyucxsicmh"]
 
 [ext_resource type="Texture2D" uid="uid://b6jsxl4f3t0wr" path="res://Gameplay/sprites/star-food.png" id="1_cfxam"]
+[ext_resource type="Script" uid="uid://ctf1yc0qij8m5" path="res://Gameplay/food.gd" id="1_uvn01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6o4qd"]
 radius = 14.0
 
 [node name="Food" type="Area2D" unique_id=1456566245 groups=["food"]]
+script = ExtResource("1_uvn01")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=173729565]
 texture = ExtResource("1_cfxam")
