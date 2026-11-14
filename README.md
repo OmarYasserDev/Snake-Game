@@ -29,9 +29,8 @@ Followed this tutorial to build the foundation of the game: https://youtu.be/c7H
 **Make an ENTIRE Godot Game in 1 HOUR (GDScript)**
 
 ## What differs from the tutorial
-
-
-
+-Added a golden star which increase the score by 5, and the length by one
+-Increasing the speed by eating food with different factors
 ## About
 
 Built as a personal project to practice Godot game development, GDScript, object-oriented programming, and game architecture.
