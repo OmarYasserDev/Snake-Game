@@ -1,34 +1,23 @@
 # Snake Game
 
-A classic 2D Snake Game developed using **Godot Engine and GDScript**. The player controls a snake, collects food, and grows longer while trying to avoid collisions.
+The snake game is a classic arcade game where you control a growing snake, eating food to score points while avoiding crashing into your body.
+
 
 ## Features
-
-- Classic
-- Arcade
-- 2D
-- Single Player
-- Score System
-- Dynamic Difficulty
-- Collision Detection
-- Snake Growth
-- Game Over & Restart System
+-Increasing difficulty
+-Continuous growth
+-Retro design
+-Simple ui
 
 ## How it works
 
-The game is built using Godot's scene-based architecture, with different scripts responsible for managing the snake, its movement, food spawning, and game boundaries.
-
-The snake moves continuously in a grid-based environment, changing direction according to player input. Whenever it eats food, a new body segment is spawned at its tail's previous position, increasing its length. The game also becomes progressively faster as the player collects more food.
-
-Collision detection determines when the game ends, triggering the Game Over screen and displaying the player's final score.
+The game uses a grid-coordinate array in GDScript to drive movement. On each Timer tick, the head vector updates and body segments follow the path history, while boundary logic handles screen wrapping. Food spawns on random coordinates checked against active body positions, and high scores persist locally via Godot's ConfigFile system.
 
 ## Acknowledgements
 
 Followed this tutorial to build the foundation of the game: https://youtu.be/c7HQwxs5y8w?si=HfqG1C7JkR4cTJ6l
 
-**Make an ENTIRE Godot Game in 1 HOUR (GDScript)**
-
-## What differs from the tutorial
+## What is new
 -Added a golden star which increase the score by 5, and the length by one
 -Increasing the speed by eating food with different factors
 ## About
